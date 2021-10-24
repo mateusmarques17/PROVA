@@ -1,0 +1,54 @@
+class Cliente {
+  public $nome;
+  private $cpf;
+  private $rg;
+  public $datadenasc;
+
+
+  public function getNome() {
+    return $this->nome;
+  }
+
+  public function setNome($name) {
+    $this->nome= $name;
+  }
+
+
+  public function getCpf() {
+    return $this->cpf;
+  }
+
+  public function setCpf($cpf) {
+    $this->cpf = $cpf;
+  }
+
+  public function getRg() {
+      return $this->nome;
+  }
+
+  public function setRg($rg) {
+      $this->rg = $rg;
+  }
+
+  public function getdatadenasc() {
+    return $this->datadenasc;
+  }
+
+  public function setDatadenasc($datadenasc) {
+    $this->datadenasc = $datadenasc;
+  }
+  public function getEhMaiorDeIdade(){
+
+    date_default_timezone_set('Londrina/Parana');
+
+    $hoje = date('d/m/Y');
+    $d1 = strtotime($hoje);
+
+
+
+    $d1 = new DateTime($hoje);
+    $d2 = new DateTime($this->datadenasc);
+    $interval = $d1->diff($d2);
+    echo $interval->format('%R%a days');
+ }
+}
